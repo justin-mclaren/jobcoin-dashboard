@@ -2,7 +2,7 @@ import React from "react";
 import { useGetAddressQuery } from "../jobcoinSlice";
 import { chart } from "./Chart.module.css";
 import convertToXY from "../../../utils/convert-transactions-to-xy-chart";
-import { scaleTime, scaleLinear } from "@visx/scale";
+import { scaleUtc, scaleLinear } from "@visx/scale";
 import { LinearGradient } from "@visx/gradient";
 import { LinePath, AreaClosed } from "@visx/shape";
 import { curveMonotoneX } from "@visx/curve";
@@ -43,7 +43,7 @@ function Chart({ address }: { address: string }) {
   yesterday.setDate(yesterday.getDate() - 1);
   if (chartData.length === 1) chartData.push({ x: yesterday, y: 0 });
 
-  const xScale = scaleTime({
+  const xScale = scaleUtc({
     domain: extent(chartData, accessors.xAccessor),
     range: [0 + padding, width - padding],
   });
@@ -78,6 +78,12 @@ function Chart({ address }: { address: string }) {
             textAnchor: "middle",
             verticalAnchor: "middle",
           })}
+          tickFormat={(d: Date) =>
+            d.toLocaleDateString("en-US", {
+              weekday: "short",
+              hour: "numeric",
+            })
+          }
         />
         <Axis
           hideZero
@@ -108,7 +114,7 @@ function Chart({ address }: { address: string }) {
           data={chartData}
           x={(d) => xScale(new Date(d.x))}
           y={(d) => yScale(d.y)}
-          stroke="url('#line-gradient')"
+          stroke={colors.accent}
           strokeWidth={6}
           curve={curveMonotoneX}
           markerEnd="url(#marker-circle)"
