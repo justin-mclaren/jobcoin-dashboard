@@ -17,9 +17,9 @@ export default (address: string, transactions: Transaction[]) => {
   const ledger = transactions.map((transaction) => {
     const { timestamp, fromAddress, toAddress, amount } = transaction;
     const amountNumber = parseFloat(amount);
-    if (toAddress === address) {
+    if (toAddress === address && fromAddress !== address) {
       balance += amountNumber;
-    } else if (fromAddress === address) {
+    } else if (fromAddress === address && toAddress !== address) {
       balance -= amountNumber;
     }
 
