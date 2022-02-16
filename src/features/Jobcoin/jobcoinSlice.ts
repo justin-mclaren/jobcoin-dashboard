@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const jobcoinApi = createApi({
   reducerPath: "jobcoinApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://jobcoin.gemini.com/embezzle-blissful/api",
+    baseUrl: "https://jobcoin.gemini.com/embezzle-blissful/api",
   }),
   tagTypes: ["Transaction"],
   endpoints: (builder) => ({
