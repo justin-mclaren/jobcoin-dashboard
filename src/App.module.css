@@ -1,0 +1,38 @@
+.app {
+  margin: auto;
+  height: 100vh;
+}
+
+.app main {
+  padding: 40px 60px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  gap: 30px;
+  max-width: 1200px;
+}
+
+.app aside {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+@media (max-width: 1200px) {
+  .app aside {
+    flex-direction: column;
+  }
+}
+
+.app aside > div {
+  flex: 1 1 50%;
+}
+
+.app h1 {
+  margin: 0;
+}
+
+.app h2 {
+  margin-top: 0;
+}

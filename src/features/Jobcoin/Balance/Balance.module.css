@@ -1,0 +1,15 @@
+.balance {
+  border-radius: 30px;
+  background: #1b1b1b;
+  color: white;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.balance p {
+  font-size: 50px;
+  text-align: end;
+  margin: 0;
+}

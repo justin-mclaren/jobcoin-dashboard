@@ -1,0 +1,40 @@
+.header {
+  border-bottom: 1px solid whitesmoke;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  padding: 40px 60px;
+  margin: auto;
+}
+
+.header span {
+  display: flex;
+  align-items: center;
+}
+
+.user {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle:hover {
+  background: #a2aab6;
+}
